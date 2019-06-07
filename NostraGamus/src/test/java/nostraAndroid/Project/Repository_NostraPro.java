@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -45,15 +46,34 @@ public class Repository_NostraPro {
     	
     	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
     	
-    	driver.findElement(Locators_Nostra.UserId_Login).sendKeys("7978415449");
-    	driver.findElement(Locators_Nostra.Pwd_Login).sendKeys("chintu123");
+    	driver.findElement(Locators_Nostra.UserId_Login).sendKeys(TestData_Nostra.UserId);
+    	driver.findElement(Locators_Nostra.Pwd_Login).sendKeys(TestData_Nostra.Password);
     	
     	driver.findElement(Locators_Nostra.Login_BTN).click();
     }	
     
-    public static void joinContets_Nostra() {
+    public static void joinContets_Nostra() throws Exception {
     	
+    	//swipeUP();
+    	Thread.sleep(3000);
     	driver.findElement(Locators_Nostra.Match).click();
+    	
+    	
+    	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+    	driver.findElement(Locators_Nostra.start_making_picks).click();
+    	
+    	String activity = driver.currentActivity();
+    	System.out.println(activity);
+    	
+    	
+		
+		  while(driver.findElements(Locators_Nostra.Select_Answer).size()>0) 
+		  {
+		      driver.findElement(Locators_Nostra.Select_Answer). click();
+		  }
+		  
+		 
+    	
     	
     }
     

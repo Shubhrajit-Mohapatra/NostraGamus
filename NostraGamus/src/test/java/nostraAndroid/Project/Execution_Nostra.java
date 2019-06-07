@@ -10,12 +10,17 @@ public class Execution_Nostra extends Repository_NostraPro {
 	public void launchApp_Nostra() throws Exception {
 		launchApp();
 	}
-	@Test
-	public void login_Nostra() throws Exception {
-		loginTo_Nostra();
-	}
-	@Test
-	public void startPlay() {
+
+	
+	
+	/*
+	 * @Test(priority = 1) public void login_Nostra() throws Exception {
+	 * loginTo_Nostra(); }
+	 */
+	 
+	 
+	@Test(priority = 1)
+	public void startPlay() throws Exception {
 		joinContets_Nostra();
 	}
 }
