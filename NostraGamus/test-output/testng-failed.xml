@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="practice.Project.Execution_Nostra">
+      <class name="nostraAndroid.Project.Execution_Nostra">
         <methods>
           <include name="launchApp_Nostra"/>
-          <include name="login_Nostra"/>
+          <include name="startPlay"/>
         </methods>
-      </class> <!-- practice.Project.Execution_Nostra -->
+      </class> <!-- nostraAndroid.Project.Execution_Nostra -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
