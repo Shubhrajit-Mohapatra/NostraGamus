@@ -4,13 +4,11 @@ import java.io.File;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchShortcuts;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
@@ -62,15 +60,15 @@ public class Repository_NostraPro {
     	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
     	driver.findElement(Locators_Nostra.start_making_picks).click();
     	
-    	String activity = driver.currentActivity();
-    	System.out.println(activity);
+    	//String activity = driver.currentActivity();
+    	//System.out.println(activity);
     	
     	
-		
-		  while(driver.findElements(Locators_Nostra.Select_Answer).size()>0) 
-		  {
+    	Thread.sleep(3000);
+		 // while(driver.findElements(Locators_Nostra.Select_Answer).size()>0) 
+		  //{
 		      driver.findElement(Locators_Nostra.Select_Answer). click();
-		  }
+		 // }
 		  
 		 
     	
@@ -126,7 +124,7 @@ public class Repository_NostraPro {
    		int endX=up.width/2;
    		int startY=(int) (up.height*(0.4));
    		int endY=(int) (up.height*(0.1));
-   		((TouchShortcuts) driver).swipe(startX, startY, endX, endY,500);
+   		driver.swipe(startX, startY, endX, endY,500);
    	}
    	public static  void swipeDOWN()
    	{
@@ -135,8 +133,8 @@ public class Repository_NostraPro {
    		int endX=down.width/2;
    		int startY=(int) (down.height*(0.5));
    		int endY=(int) (down.height*(0.2));
-   		((TouchShortcuts) driver).swipe( endX, endY,startX, startY,500);
-   	}
+   		driver.swipe( endX, endY,startX, startY,500);
+    }
    	public static void swipe_RL()
    	{
    		org.openqa.selenium.Dimension rl=driver.manage().window().getSize();
@@ -144,7 +142,7 @@ public class Repository_NostraPro {
    		int endx = (int)(rl.width*(0.2));
    		int starty =  rl.height /2 ;
    	    int endy = rl.height/2;
-   	    ((TouchShortcuts) driver).swipe(startx, starty, endx, endy,1000);   
+   	    driver.swipe(startx, starty, endx, endy,1000);
    	}
    	public static void swipe_LR()
    	{
@@ -153,7 +151,7 @@ public class Repository_NostraPro {
    		int endx = (int)(lr.width*(0.2));
    		int starty = lr.height /2 ;
    	    int endy = lr.height/2;
-   	    ((TouchShortcuts) driver).swipe( endx, endy,startx, starty, 500);
+   	    driver.swipe( endx, endy,startx, starty, 500);
    	}
 	
 

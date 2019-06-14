@@ -27,11 +27,6 @@ public class Locators_Nostra {
     public static By start_making_picks = By.id(TestData_Nostra.Package+":id/new_challenge_matches_join_button");
     
     //Predict Your Answers
-    public static By Select_Answer = By.id("in.sportscafe.nostragamus.pro:id/prediction_option_textView_A_1");
-    
-
-
-
-
+    public static By Select_Answer = By.id("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");  
 }
 
