@@ -2,6 +2,8 @@ package nostraAndroid.Project;
 
 import java.io.File;
 import java.net.URL;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
@@ -21,7 +23,7 @@ public class Repository_NostraPro {
     	
     	 File classpathRoot = new File(System.getProperty("user.dir"));
     	 File appDir = new File(classpathRoot, "App");
-    	 File app = new File(appDir, "NostraStage.apk");
+    	 File app = new File(appDir, "NostraStage.apk");   
     	 
     	 DesiredCapabilities capabilities = new DesiredCapabilities();
     	 
@@ -54,6 +56,10 @@ public class Repository_NostraPro {
     	
     	//swipeUP();
     	Thread.sleep(3000);
+    	
+    	swipeUP();
+    	swipeUP();
+    	swipeUP();
     	driver.findElement(Locators_Nostra.Match).click();
     	
     	
@@ -65,10 +71,15 @@ public class Repository_NostraPro {
     	
     	
     	Thread.sleep(3000);
-		 // while(driver.findElements(Locators_Nostra.Select_Answer).size()>0) 
-		  //{
-		      driver.findElement(Locators_Nostra.Select_Answer). click();
-		 // }
+    	
+    	List<MobileElement> els1 = (List<MobileElement>) driver.findElementsByAccessibilityId("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
+    	List<MobileElement> els2 = (List<MobileElement>) driver.findElementsByAccessibilityId("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
+    	MobileElement el1 = (MobileElement) driver.findElementById("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
+		//el1.click();
+    	 while(((List<MobileElement>) el1).size()>0) 
+		 {
+		      el1.click();
+		 }
 		  
 		 
     	
@@ -151,6 +162,9 @@ public class Repository_NostraPro {
    		int endx = (int)(lr.width*(0.2));
    		int starty = lr.height /2 ;
    	    int endy = lr.height/2;
+   	    
+   	    //TouchAction action = new TouchAction(driver);
+   	    //action.press(point(startx, starty)).waitAction().moveTo(point((endx - startx), (endy-starty))).release().perform();
    	    driver.swipe( endx, endy,startx, starty, 500);
    	}
 	
