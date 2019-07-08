@@ -5,6 +5,7 @@
     <classes>
       <class name="nostraAndroid.Project.Execution_Nostra">
         <methods>
+          <include name="join"/>
           <include name="launchApp_Nostra"/>
           <include name="startPlay"/>
         </methods>

@@ -3,14 +3,15 @@ package nostraAndroid.Project;
 import java.io.File;
 import java.net.URL;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
@@ -55,11 +56,11 @@ public class Repository_NostraPro {
     public static void joinContets_Nostra() throws Exception {
     	
     	//swipeUP();
-    	Thread.sleep(3000);
+    	Thread.sleep(20000);
     	
-    	swipeUP();
-    	swipeUP();
-    	swipeUP();
+    	//swipeUP();
+    	//swipeUP();
+    	//swipeUP();
     	driver.findElement(Locators_Nostra.Match).click();
     	
     	
@@ -71,19 +72,42 @@ public class Repository_NostraPro {
     	
     	
     	Thread.sleep(3000);
-    	
-    	List<MobileElement> els1 = (List<MobileElement>) driver.findElementsByAccessibilityId("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
-    	List<MobileElement> els2 = (List<MobileElement>) driver.findElementsByAccessibilityId("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
-    	MobileElement el1 = (MobileElement) driver.findElementById("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
-		//el1.click();
-    	 while(((List<MobileElement>) el1).size()>0) 
+//		TouchAction action = new TouchAction(driver);
+//    	action.tap(367,738).perform();
+    	    	 
+    	while(driver.findElements(By.id("in.sportscafe.nostragamus.pro:id/prediction_question_card_points_layout")).size()>0)  
 		 {
-		      el1.click();
+    		Thread.sleep(4000);
+    		TouchAction action = new TouchAction(driver);
+        	action.tap(367,738).perform();
 		 }
-		  
-		 
+    }
+    
+    public static void joinConfig() throws Exception
+    {
     	
+    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	driver.findElement(Locators_Nostra.Join_a_contest_to_win_prizes).click();
     	
+    	if(driver.findElements(Locators_Nostra.Cancel_Tooltip).size()>0) {
+    	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+    	driver.findElement(Locators_Nostra.Cancel_Tooltip).click();
+    	}else{
+    		System.out.println("Tooltip doesn't apear");
+    	}
+    	
+    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	driver.findElement(Locators_Nostra.Join_Con).click();
+    	
+    	//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	//driver.findElement(Locators_Nostra.Use_Pickset).click();
+    	
+    	Thread.sleep(4000);
+		TouchAction action = new TouchAction(driver);
+    	action.tap(633,479).perform();
+    	    	
+    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	driver.findElement(Locators_Nostra.Pay_Join).click();
     }
     
     

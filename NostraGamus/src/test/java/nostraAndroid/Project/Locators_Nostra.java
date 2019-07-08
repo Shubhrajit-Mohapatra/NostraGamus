@@ -27,6 +27,15 @@ public class Locators_Nostra {
     public static By start_making_picks = By.id(TestData_Nostra.Package+":id/new_challenge_matches_join_button");
     
     //Predict Your Answers
-    public static By Select_Answer = By.id("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");  
+    public static By Select_Answer = By.id("in.sportscafe.nostragamus.pro:id/prediction_audience_poll_layer_A_1");
+    
+    //Join a contest
+    public static By JoinContest = By.id(TestData_Nostra.Package+":id/new_challenge_match_answer_join_button");
+    
+    public static By Join_a_contest_to_win_prizes = By.id("in.sportscafe.nostragamus.pro:id/new_challenge_match_answer_join_button"); 
+    public static By Join_Con=	By.xpath("(//*[@class='android.widget.Button'])[1]");
+    public static By Use_Pickset = By.xpath("//*[@class='android.widget.Button']");
+    public static By Pay_Join = By.id("in.sportscafe.nostragamus.pro:id/join_contest_dialog_join_button");
+    public static By Cancel_Tooltip = By.id("in.sportscafe.nostragamus.pro:id/cancel_button");
 }
 

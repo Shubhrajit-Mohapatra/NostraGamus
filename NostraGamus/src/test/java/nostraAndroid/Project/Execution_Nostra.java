@@ -21,4 +21,8 @@ public class Execution_Nostra extends Repository_NostraPro {
 	public void startPlay() throws Exception {
 		joinContets_Nostra();
 	}
+	@Test(priority = 2)
+	public void join() throws Exception {
+		joinConfig();
+	}
 }
