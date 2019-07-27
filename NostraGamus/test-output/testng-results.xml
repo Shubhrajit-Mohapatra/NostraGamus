@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="52729" started-at="2019-07-08T11:01:22Z" finished-at="2019-07-08T11:02:14Z">
+  <suite name="Default suite" duration-ms="130503" started-at="2019-07-24T09:58:40Z" finished-at="2019-07-24T10:00:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="52729" started-at="2019-07-08T11:01:22Z" finished-at="2019-07-08T11:02:14Z">
+    <test name="Default test" duration-ms="130503" started-at="2019-07-24T09:58:40Z" finished-at="2019-07-24T10:00:51Z">
       <class name="nostraAndroid.Project.Execution_Nostra">
-        <test-method status="PASS" signature="launchApp_Nostra()[pri:0, instance:nostraAndroid.Project.Execution_Nostra@73846619]" name="launchApp_Nostra" is-config="true" duration-ms="8572" started-at="2019-07-08T11:01:22Z" finished-at="2019-07-08T11:01:30Z">
+        <test-method status="PASS" signature="launchApp_Nostra()[pri:0, instance:nostraAndroid.Project.Execution_Nostra@1068e947]" name="launchApp_Nostra" is-config="true" duration-ms="7872" started-at="2019-07-24T09:58:40Z" finished-at="2019-07-24T09:58:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApp_Nostra -->
-        <test-method status="PASS" signature="startPlay()[pri:1, instance:nostraAndroid.Project.Execution_Nostra@73846619]" name="startPlay" duration-ms="32432" started-at="2019-07-08T11:01:30Z" finished-at="2019-07-08T11:02:03Z">
+        <test-method status="PASS" signature="login_Nostra()[pri:1, instance:nostraAndroid.Project.Execution_Nostra@1068e947]" name="login_Nostra" duration-ms="22688" started-at="2019-07-24T09:58:48Z" finished-at="2019-07-24T09:59:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_Nostra -->
+        <test-method status="PASS" signature="startPlay()[pri:2, instance:nostraAndroid.Project.Execution_Nostra@1068e947]" name="startPlay" duration-ms="87509" started-at="2019-07-24T09:59:11Z" finished-at="2019-07-24T10:00:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startPlay -->
-        <test-method status="PASS" signature="join()[pri:2, instance:nostraAndroid.Project.Execution_Nostra@73846619]" name="join" duration-ms="11691" started-at="2019-07-08T11:02:03Z" finished-at="2019-07-08T11:02:14Z">
+        <test-method status="PASS" signature="join()[pri:3, instance:nostraAndroid.Project.Execution_Nostra@1068e947]" name="join" duration-ms="12386" started-at="2019-07-24T10:00:38Z" finished-at="2019-07-24T10:00:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- join -->

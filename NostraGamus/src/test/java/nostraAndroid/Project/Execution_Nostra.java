@@ -12,16 +12,16 @@ public class Execution_Nostra extends Repository_NostraPro {
 		Thread.sleep(3000);
 	}
 
-	/*
-	 * @Test(priority = 1) public void login_Nostra() throws Exception {
-	 * loginTo_Nostra(); }
-	 */
+	
+	  @Test(priority = 1) public void login_Nostra() throws Exception {
+	  loginTo_Nostra(); }
 	 
-	@Test(priority = 1)
+	 
+	@Test(priority = 2)
 	public void startPlay() throws Exception {
 		joinContets_Nostra();
 	}
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void join() throws Exception {
 		joinConfig();
 	}

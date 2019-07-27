@@ -14,6 +14,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class Repository_NostraPro {
 	static AndroidDriver<MobileElement> driver;
@@ -43,6 +44,7 @@ public class Repository_NostraPro {
 	}	
     public static void loginTo_Nostra() throws Exception
     {
+    	Thread.sleep(10000);
     	driver.findElement(Locators_Nostra.Login).click();
     	
     	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
@@ -53,14 +55,12 @@ public class Repository_NostraPro {
     	driver.findElement(Locators_Nostra.Login_BTN).click();
     }	
     
-    public static void joinContets_Nostra() throws Exception {
+    public void joinContets_Nostra() throws Exception {
     	
-    	//swipeUP();
-    	Thread.sleep(20000);
+    	//scrollUp();
+    	Thread.sleep(10000);
     	
-    	//swipeUP();
-    	//swipeUP();
-    	//swipeUP();
+    	
     	driver.findElement(Locators_Nostra.Match).click();
     	
     	
@@ -71,15 +71,18 @@ public class Repository_NostraPro {
     	//System.out.println(activity);
     	
     	
-    	Thread.sleep(3000);
-//		TouchAction action = new TouchAction(driver);
-//    	action.tap(367,738).perform();
-    	    	 
+    	Thread.sleep(2000);
+		TouchAction action1 = new TouchAction(driver);
+		int xp= 367;
+		int yp= 738;
+     	action1.press(PointOption.point(xp,yp)).release().perform();
+    	//(367,738)    	 
     	while(driver.findElements(By.id("in.sportscafe.nostragamus.pro:id/prediction_question_card_points_layout")).size()>0)  
 		 {
-    		Thread.sleep(4000);
+    		Thread.sleep(2000);
     		TouchAction action = new TouchAction(driver);
-        	action.tap(367,738).perform();
+         	action.press(PointOption.point(xp,yp)).release().perform();
+        	
 		 }
     }
     
@@ -103,94 +106,105 @@ public class Repository_NostraPro {
     	//driver.findElement(Locators_Nostra.Use_Pickset).click();
     	
     	Thread.sleep(4000);
-		TouchAction action = new TouchAction(driver);
-    	action.tap(633,479).perform();
+    	TouchAction action = new TouchAction(driver);
+		int x1= 633;
+		int y1= 479;
+     	action.press(PointOption.point(x1,y1)).release().perform();
+		
+    	//633,479
     	    	
     	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     	driver.findElement(Locators_Nostra.Pay_Join).click();
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public static  void swipeUP()
-   	{
-   		Dimension up=driver.manage().window().getSize();
-   		int startX=up.width/2;
-   		int endX=up.width/2;
-   		int startY=(int) (up.height*(0.4));
-   		int endY=(int) (up.height*(0.1));
-   		driver.swipe(startX, startY, endX, endY,500);
-   	}
-   	public static  void swipeDOWN()
-   	{
-   		Dimension down=driver.manage().window().getSize();
-   		int startX=down.width/2;
-   		int endX=down.width/2;
-   		int startY=(int) (down.height*(0.5));
-   		int endY=(int) (down.height*(0.2));
-   		driver.swipe( endX, endY,startX, startY,500);
-    }
-   	public static void swipe_RL()
-   	{
-   		org.openqa.selenium.Dimension rl=driver.manage().window().getSize();
-       	int startx = (int) (rl.width * (0.9));
-   		int endx = (int)(rl.width*(0.2));
-   		int starty =  rl.height /2 ;
-   	    int endy = rl.height/2;
-   	    driver.swipe(startx, starty, endx, endy,1000);
-   	}
-   	public static void swipe_LR()
-   	{
-   		org.openqa.selenium.Dimension lr=driver.manage().window().getSize();
-       	int startx = (int) (lr.width * (0.9));
-   		int endx = (int)(lr.width*(0.2));
-   		int starty = lr.height /2 ;
-   	    int endy = lr.height/2;
-   	    
-   	    //TouchAction action = new TouchAction(driver);
-   	    //action.press(point(startx, starty)).waitAction().moveTo(point((endx - startx), (endy-starty))).release().perform();
-   	    driver.swipe( endx, endy,startx, starty, 500);
-   	}
+ 	public void scrollDownByElementLocation(MobileElement element) {   // scrolls by element coordinates
+// 		System.out.println("scrolling by element location");
+ 		int x = element.getLocation().getX();
+		int y = element.getLocation().getY();
+		int startY=(int)(x*0.90);
+ 		int endY=(int)(y*0.20);
+		new TouchAction(driver).press(PointOption.point(x, startY)).waitAction().moveTo(PointOption.point(x, endY)).release().perform();	
+
+	}
+ 	
 	
+ 	public void scrollDown() {  // scroll down by window coordinates
+// 		System.out.println("scroll down by window");
+ 		Dimension dim=driver.manage().window().getSize();
+		int height=dim.getHeight();
+		int width=dim.getWidth();
+		int x=width/2;
+		int startY=(int)(height*0.80);
+		int endY=(int)(height*0.50);
+		new TouchAction(driver).press(PointOption.point(x, startY)).waitAction().moveTo(PointOption.point(x, endY)).release().perform();	
+
+ 	}
+ 	
+ 	public void scrollDownFast() { // scroll down by window coordinates
+// 		System.out.println("scroll down by window");
+ 		Dimension dim=driver.manage().window().getSize();
+		int height=dim.getHeight();
+		int width=dim.getWidth();
+		int x=width/2;
+		int startY=(int)(height*0.80);
+		int endY=(int)(height*0.20);
+		new TouchAction(driver).press(PointOption.point(x, startY)).waitAction().moveTo(PointOption.point(x, endY)).release().perform();	
+
+ 	}
+ 	
+ 	
+ 	public void scrollUp() { // scroll up by window coordinates
+		Dimension dim=driver.manage().window().getSize();
+ 		int height=dim.getHeight();
+ 		int width=dim.getWidth();
+ 		int x=width/2;
+ 		int startY=(int)(height*0.40);
+ 		int endY=(int)(height*0.80);
+		new TouchAction(driver).press(PointOption.point(x, startY)).waitAction().moveTo(PointOption.point(x, endY)).release().perform();	
+ 
+		
+	}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    	
 
 }

@@ -7,6 +7,7 @@
         <methods>
           <include name="join"/>
           <include name="launchApp_Nostra"/>
+          <include name="login_Nostra"/>
           <include name="startPlay"/>
         </methods>
       </class> <!-- nostraAndroid.Project.Execution_Nostra -->
